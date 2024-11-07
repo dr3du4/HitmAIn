@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 
     // Wektor przechowujący kierunek ruchu
     private Vector2 movement;
+    
 
     void Start()
     {
@@ -29,6 +30,19 @@ public class Player : MonoBehaviour
     {
         // Ruch gracza - przesuwamy Rigidbody2D w kierunku zgodnym z wejściem
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+    }
+    // Funkcja wywoływana przy kolizji z obiektami z tagiem "Enemy" lub "Light"
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy") || other.CompareTag("Light"))
+        {
+            GameManager.Instance.ShowLoseScreen();
+        }
+        // Sprawdzamy, czy gracz wszedł w obszar "Reward"
+        if (other.CompareTag("Reward"))
+        {
+            GameManager.Instance.ShowWinScreen();
+        }
     }
 }
 

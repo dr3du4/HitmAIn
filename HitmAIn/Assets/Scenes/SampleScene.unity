@@ -2740,6 +2740,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerSquare
       objectReference: {fileID: 0}
+    - target: {fileID: 9084153714920045867, guid: 1aacc6f1e69625046af69c97b49cdf0c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9096351556266291214, guid: 1aacc6f1e69625046af69c97b49cdf0c, type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.BranchSizes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9096351556266291214, guid: 1aacc6f1e69625046af69c97b49cdf0c, type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.BranchSizes.Array.data[0]
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

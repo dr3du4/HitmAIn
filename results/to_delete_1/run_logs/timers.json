@@ -1,0 +1,47 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1731098460",
+        "python_version": "3.10.12 | packaged by Anaconda, Inc. | (main, Jul  5 2023, 19:01:18) [MSC v.1916 64 bit (AMD64)]",
+        "command_line_arguments": "C:\\Users\\Acer\\anaconda3\\envs\\UnityML\\Scripts\\mlagents-learn --run-id to_delete_1",
+        "mlagents_version": "1.0.0",
+        "mlagents_envs_version": "1.0.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "2.5.1+cpu",
+        "numpy_version": "1.21.2",
+        "end_time_seconds": "1731098500"
+    },
+    "total": 40.61049949999142,
+    "count": 1,
+    "self": 0.005871899993508123,
+    "children": {
+        "run_training.setup": {
+            "total": 0.051326599990716204,
+            "count": 1,
+            "self": 0.051326599990716204
+        },
+        "TrainerController.start_learning": {
+            "total": 40.553301000007195,
+            "count": 1,
+            "self": 0.0009568000095896423,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 40.5523128999921,
+                    "count": 1,
+                    "self": 40.5523128999921
+                },
+                "trainer_threads": {
+                    "total": 2.3000029614195228e-06,
+                    "count": 1,
+                    "self": 2.3000029614195228e-06
+                },
+                "TrainerController._save_models": {
+                    "total": 2.9000002541579306e-05,
+                    "count": 1,
+                    "self": 2.9000002541579306e-05
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,49 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1731539031",
+        "python_version": "3.10.12 | packaged by Anaconda, Inc. | (main, Jul  5 2023, 19:01:18) [MSC v.1916 64 bit (AMD64)]",
+        "command_line_arguments": "C:\\Users\\Acer\\anaconda3\\envs\\UnityML\\Scripts\\mlagents-learn --resume",
+        "mlagents_version": "1.0.0",
+        "mlagents_envs_version": "1.0.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "2.5.1+cpu",
+        "numpy_version": "1.21.2",
+        "end_time_seconds": "1731539065"
+    },
+    "total": 33.28808900003787,
+    "count": 1,
+    "self": 0.012343900045379996,
+    "children": {
+        "run_training.setup": {
+            "total": 0.06185719999484718,
+            "count": 1,
+            "self": 0.06185719999484718
+        },
+        "TrainerController.start_learning": {
+            "total": 33.213887899997644,
+            "count": 1,
+            "self": 0.00013850012328475714,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 32.909837499959394,
+                    "count": 1,
+                    "self": 32.909837499959394
+                },
+                "TrainerController._save_models": {
+                    "total": 0.30391189991496503,
+                    "count": 1,
+                    "self": 0.007600099896080792,
+                    "children": {
+                        "RLTrainer._checkpoint": {
+                            "total": 0.29631180001888424,
+                            "count": 1,
+                            "self": 0.29631180001888424
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

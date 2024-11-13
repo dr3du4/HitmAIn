@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         // Ruch gracza - przesuwamy Rigidbody2D w kierunku zgodnym z wejściem
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + moveSpeed * Time.fixedDeltaTime * movement.normalized);
     }
     // Funkcja wywoływana przy kolizji z obiektami z tagiem "Enemy" lub "Light"
     private void OnTriggerEnter2D(Collider2D other)

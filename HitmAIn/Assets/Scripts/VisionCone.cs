@@ -7,6 +7,7 @@ using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
+[RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class VisionCone : MonoBehaviour {
     [SerializeField] private Transform parent;
 
@@ -21,9 +22,28 @@ public class VisionCone : MonoBehaviour {
     [SerializeField] private LayerMask obstacleMask;
     [SerializeField] private LayerMask detectionMask;
 
+    [SerializeField] private Material material;
+    
+
     private List<Vector2> raycastHitpoints = new();
     private LayerMask interactionMask;
-    
+
+    private MeshFilter meshFilter;
+
+    private Vector3[] vertices;
+    private int[] triangles;
+
+
+    private void Start()
+    {
+        meshFilter = gameObject.GetComponent<MeshFilter>();
+        
+        int totalRaycastCount = Mathf.FloorToInt(raycastsPerDegree * angleInDegrees);
+        vertices = new Vector3[totalRaycastCount + 1];
+        triangles = new int[3 * totalRaycastCount];
+
+        GetComponent<MeshRenderer>().material = material;
+    }
 
     private void Update()
     {
@@ -54,6 +74,39 @@ public class VisionCone : MonoBehaviour {
                 raycastHitpoints.Add(endPoint);
             }
         }
+
+        #region meshGeneration
+
+        Mesh mesh = new Mesh();
+
+        if (vertices.Length != totalRaycastCount + 1)
+        {
+            vertices = new Vector3[totalRaycastCount + 1];
+            triangles = new int[totalRaycastCount * 3];
+        }
+
+        vertices[0] = Vector3.zero;
+
+        // I could do this in the loop above, but I'm too lazy for now
+        for (int i = 1; i <= totalRaycastCount; i++)
+        {
+            vertices[i] = transform.InverseTransformPoint(raycastHitpoints[i - 1]);
+        }
+
+        for (int i = 1; i < totalRaycastCount; i++)
+        {
+            triangles[3 * i - 3] = 0;
+            triangles[3 * i - 2] = i + 1;
+            triangles[3 * i - 1] = i;
+        }
+
+        mesh.vertices = vertices;
+        mesh.triangles = triangles;
+        mesh.RecalculateNormals();
+        mesh.RecalculateBounds();
+        meshFilter.mesh = mesh;
+
+        #endregion
     }
     
     private void OnDrawGizmos()
@@ -73,9 +126,15 @@ public class VisionCone : MonoBehaviour {
             Gizmos.DrawLine(origin, origin + Quaternion.Euler(0, 0, angleInDegrees / 2f) * centerDirection * radius);
         }
         
-        foreach (Vector2 endPoint in raycastHitpoints)
+        for (int i = 1; i < raycastHitpoints.Count; i++)
         {
-            Gizmos.DrawLine(origin, endPoint);
+            Gizmos.DrawLine(origin, raycastHitpoints[i]);
+        }
+        
+        Gizmos.color = Color.green;
+        if (raycastHitpoints.Count != 0)
+        {
+            Gizmos.DrawLine(origin, raycastHitpoints[0]);
         }
     }
     

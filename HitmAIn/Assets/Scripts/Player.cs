@@ -36,12 +36,15 @@ public class Player : MonoBehaviour
     {
         if (other.CompareTag("Enemy") || other.CompareTag("Light"))
         {
-            GameManager.Instance.ShowLoseScreen();
+            Debug.Log("[UNIMPLEMENTED] Show lose screen");
+            // TODO implement GameManager
+            // GameManager.Instance.ShowLoseScreen();
         }
         // Sprawdzamy, czy gracz wszedł w obszar "Reward"
         if (other.CompareTag("Reward"))
         {
-            GameManager.Instance.ShowWinScreen();
+            Debug.Log("[UNIMPLEMENTED] Show win screen");
+            // GameManager.Instance.ShowWinScreen();
         }
     }
 }

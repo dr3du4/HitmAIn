@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] private bool showPathWhenUnselected = false;
+        
     // Pozycje dwóch punktów, między którymi porusza się przeciwnik
         public Transform pointA;
         public Transform pointB;
@@ -49,5 +52,20 @@ public class Enemy : MonoBehaviour
                 yield return null;
             }
         }
-    
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawLine(pointA.position, pointB.position);
+        }
+
+        private void OnDrawGizmos()
+        {
+            if (!showPathWhenUnselected)
+            {
+                return;
+            }
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawLine(pointA.position, pointB.position);
+        }
 }

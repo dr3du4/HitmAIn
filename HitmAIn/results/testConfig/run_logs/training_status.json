@@ -1,0 +1,29 @@
+{
+    "MlAgentCar": {
+        "checkpoints": [
+            {
+                "steps": 2820,
+                "file_path": "results\\testConfig\\MlAgentCar\\MlAgentCar-2820.onnx",
+                "reward": -4186.995306396484,
+                "creation_time": 1732811260.461974,
+                "auxillary_file_paths": [
+                    "results\\testConfig\\MlAgentCar\\MlAgentCar-2820.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 2820,
+            "file_path": "results\\testConfig\\MlAgentCar.onnx",
+            "reward": -4186.995306396484,
+            "creation_time": 1732811260.461974,
+            "auxillary_file_paths": [
+                "results\\testConfig\\MlAgentCar\\MlAgentCar-2820.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.0.0",
+        "torch_version": "2.5.1+cpu"
+    }
+}

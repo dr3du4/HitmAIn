@@ -1,6 +1,6 @@
 default_settings: null
 behaviors:
-  My Behavior:
+  MlAgentCar:
     trainer_type: ppo
     hyperparameters:
       batch_size: 1024
@@ -12,21 +12,21 @@ behaviors:
       num_epoch: 3
       shared_critic: false
       learning_rate_schedule: linear
-      beta_schedule: linear
+      beta_schedule: constant
       epsilon_schedule: linear
     checkpoint_interval: 500000
     network_settings:
-      normalize: false
-      hidden_units: 128
-      num_layers: 2
+      normalize: true
+      hidden_units: 32
+      num_layers: 3
       vis_encode_type: simple
       memory: null
       goal_conditioning_type: hyper
       deterministic: false
     reward_signals:
       extrinsic:
-        gamma: 0.99
-        strength: 1.0
+        gamma: 0.995
+        strength: 0.95
         network_settings:
           normalize: false
           hidden_units: 128
@@ -35,13 +35,26 @@ behaviors:
           memory: null
           goal_conditioning_type: hyper
           deterministic: false
+      curiosity:
+        gamma: 0.995
+        strength: 0.05
+        network_settings:
+          normalize: true
+          hidden_units: 32
+          num_layers: 3
+          vis_encode_type: simple
+          memory: null
+          goal_conditioning_type: hyper
+          deterministic: false
+        learning_rate: 0.0003
+        encoding_size: null
     init_path: null
     keep_checkpoints: 5
     even_checkpoints: false
-    max_steps: 500000
+    max_steps: 1000000000
     time_horizon: 64
-    summary_freq: 50000
-    threaded: false
+    summary_freq: 100
+    threaded: true
     self_play: null
     behavioral_cloning: null
 env_settings:
@@ -59,17 +72,17 @@ engine_settings:
   width: 84
   height: 84
   quality_level: 5
-  time_scale: 20
+  time_scale: 1.0
   target_frame_rate: -1
   capture_frame_rate: 60
   no_graphics: false
 environment_parameters: null
 checkpoint_settings:
-  run_id: to_delete_1
+  run_id: testConfig
   initialize_from: null
   load_model: false
-  resume: true
-  force: false
+  resume: false
+  force: true
   train_model: false
   inference: false
   results_dir: results

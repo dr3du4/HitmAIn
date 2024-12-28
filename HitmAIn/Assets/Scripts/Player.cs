@@ -9,10 +9,13 @@ public class Player : MonoBehaviour
     // Komponent Rigidbody2D gracza
     private Rigidbody2D rb;
 
+    
     // Wektor przechowujący kierunek ruchu
     private Vector2 movement;
     
 
+    public List<Sensor> Sensors;
+    
     void Start()
     {
         // Pobierz Rigidbody2D przypisany do gracza

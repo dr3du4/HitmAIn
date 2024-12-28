@@ -4,17 +4,17 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
-  - Light
-  - Reward
+  - Carpet
+  - Wall
+  - Goal
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Walls
+  - 
   - Water
   - UI
-  - Player
+  - learning
   - 
   - 
   - 
@@ -41,9 +41,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 3731976107
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

@@ -64,10 +64,6 @@ public class VisionCone : MonoBehaviour {
             if (raycastHit.collider != null)
             {
                 raycastHitpoints.Add(raycastHit.point);
-                if (IsInLayerMask(raycastHit.collider.gameObject, detectionMask))
-                {
-                    Debug.Log("Player detected at " + raycastHit.point);
-                }
             }
             else
             {

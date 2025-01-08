@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 29379436226885585}
   - component: {fileID: 4420397139956831875}
   - component: {fileID: 5956377276476547201}
+  - component: {fileID: 1724141037786215981}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,6 +104,41 @@ MonoBehaviour:
   pointB: {fileID: 0}
   speed: 2
   rotationSpeed: 2
+--- !u!58 &1724141037786215981
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603172705802402278}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1001 &7772802738475034660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -115,6 +151,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VisionCone
       objectReference: {fileID: 0}
+    - target: {fileID: 2665216728116920582, guid: a790e657dcf363245b966c54dc092866, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 5689650160786207075, guid: a790e657dcf363245b966c54dc092866, type: 3}
       propertyPath: parent
       value: 
@@ -126,6 +166,10 @@ PrefabInstance:
     - target: {fileID: 5689650160786207075, guid: a790e657dcf363245b966c54dc092866, type: 3}
       propertyPath: angleInDegrees
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5689650160786207075, guid: a790e657dcf363245b966c54dc092866, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6918675898428510362, guid: a790e657dcf363245b966c54dc092866, type: 3}
       propertyPath: m_LocalPosition.x

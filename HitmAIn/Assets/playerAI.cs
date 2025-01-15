@@ -13,16 +13,29 @@ public class playerAI : Agent
     private Vector3 startPos;
     private float currentDistance;
     
+    public List<GameObject> gates;
+    private int currentIndex;
+    
     void Start()
     {
         startPos = transform.position;
-        currentDistance = Vector3.Distance(startPos, target.position);
+        currentIndex = 0;
+        target = gates[currentIndex].transform;
+        currentDistance = Vector3.Distance(startPos, gates[currentIndex].transform.position);
+        
+        
     }
     
     public override void OnEpisodeBegin()
     {
         transform.position = startPos;
-        currentDistance = Vector3.Distance(transform.position, target.position);
+        currentIndex = 0;
+        target = gates[currentIndex].transform;
+        currentDistance = Vector3.Distance(startPos, gates[currentIndex].transform.position);
+        foreach (GameObject g in gates)
+        {
+            g.SetActive(true);
+        }
     }
     public override void CollectObservations(VectorSensor sensor)
     {
@@ -56,13 +69,18 @@ public class playerAI : Agent
         Debug.Log(other.tag);
         if (other.tag == "Goal")
         {
-            AddReward(1f);
+            AddReward(100f);
             EndEpisode();
         }
         else if (other.tag == "Wall")
         {
-            AddReward(-1f);
+            AddReward(-100f);
             EndEpisode();
+        }
+        else if (other.tag == "Gate")
+        {
+            AddReward(20f);
+            other.GameObject().SetActive(false);
         }
         
     }

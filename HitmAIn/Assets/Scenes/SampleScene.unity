@@ -216,6 +216,22 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1315367047755031798, guid: 1aacc6f1e69625046af69c97b49cdf0c, type: 3}
+      propertyPath: gates.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315367047755031798, guid: 1aacc6f1e69625046af69c97b49cdf0c, type: 3}
+      propertyPath: gates.Array.data[0]
+      value: 
+      objectReference: {fileID: 1626662008}
+    - target: {fileID: 1315367047755031798, guid: 1aacc6f1e69625046af69c97b49cdf0c, type: 3}
+      propertyPath: gates.Array.data[1]
+      value: 
+      objectReference: {fileID: 2140967016}
+    - target: {fileID: 1315367047755031798, guid: 1aacc6f1e69625046af69c97b49cdf0c, type: 3}
+      propertyPath: gates.Array.data[2]
+      value: 
+      objectReference: {fileID: 1352796038}
     - target: {fileID: 2581318672772540021, guid: 1aacc6f1e69625046af69c97b49cdf0c, type: 3}
       propertyPath: m_RaysPerDirection
       value: 2
@@ -312,6 +328,38 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9084153714920045867, guid: 1aacc6f1e69625046af69c97b49cdf0c, type: 3}
+      propertyPath: Sensors.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9084153714920045867, guid: 1aacc6f1e69625046af69c97b49cdf0c, type: 3}
+      propertyPath: Sensors.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9084153714920045867, guid: 1aacc6f1e69625046af69c97b49cdf0c, type: 3}
+      propertyPath: Sensors.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9084153714920045867, guid: 1aacc6f1e69625046af69c97b49cdf0c, type: 3}
+      propertyPath: Sensors.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9084153714920045867, guid: 1aacc6f1e69625046af69c97b49cdf0c, type: 3}
+      propertyPath: Sensors.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9084153714920045867, guid: 1aacc6f1e69625046af69c97b49cdf0c, type: 3}
+      propertyPath: Sensors.Array.data[5]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9084153714920045867, guid: 1aacc6f1e69625046af69c97b49cdf0c, type: 3}
+      propertyPath: Sensors.Array.data[6]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9084153714920045867, guid: 1aacc6f1e69625046af69c97b49cdf0c, type: 3}
+      propertyPath: Sensors.Array.data[7]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 9096351556266291214, guid: 1aacc6f1e69625046af69c97b49cdf0c, type: 3}
       propertyPath: m_BehaviorName
       value: MoveToGoal
@@ -387,7 +435,7 @@ GameObject:
   - component: {fileID: 512142812}
   m_Layer: 6
   m_Name: WallTilemap
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13367,7 +13415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1352796040}
   - component: {fileID: 1352796039}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Reward
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -17741,6 +17789,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd98deb457120ce45bc133f19a962c0b, type: 3}
+--- !u!1 &2140967016 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5170967986098714600, guid: bd98deb457120ce45bc133f19a962c0b, type: 3}
+  m_PrefabInstance: {fileID: 2140967015}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1462557837622405387
 PrefabInstance:
   m_ObjectHideFlags: 0

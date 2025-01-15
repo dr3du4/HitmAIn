@@ -66,21 +66,34 @@ public class playerAI : Agent
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.tag);
+        
         if (other.tag == "Goal")
         {
+            Debug.Log(other.tag);
             AddReward(100f);
             EndEpisode();
         }
         else if (other.tag == "Wall")
         {
+            Debug.Log(other.tag);
             AddReward(-100f);
             EndEpisode();
         }
-        else if (other.tag == "Gate")
+        else if (other.tag == "Gate" && gates[currentIndex] == other.gameObject)
         {
+            Debug.Log($"Triggered Gate: {other.name}, Current Index: {currentIndex}");
             AddReward(20f);
-            other.GameObject().SetActive(false);
+            other.gameObject.SetActive(false);
+
+            currentIndex++;
+            if (currentIndex < gates.Count)
+            {
+                target = gates[currentIndex].transform;
+            }
+            else
+            {
+                Debug.LogWarning("No more gates available!");
+            }
         }
         
     }

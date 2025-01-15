@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &203995476 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4510403289226914408, guid: 1aacc6f1e69625046af69c97b49cdf0c, type: 3}
+  m_PrefabInstance: {fileID: 479432580}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &466201433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -274,7 +279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3553640803972194771, guid: 1aacc6f1e69625046af69c97b49cdf0c, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4510403289226914408, guid: 1aacc6f1e69625046af69c97b49cdf0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13295,7 +13300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ee8168140f3f2439835c629a805865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 203995476}
   offset: {x: 0, y: 0, z: -10}
 --- !u!1 &590642187
 GameObject:

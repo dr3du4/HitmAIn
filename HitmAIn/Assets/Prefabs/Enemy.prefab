@@ -102,7 +102,7 @@ MonoBehaviour:
   showPathWhenUnselected: 0
   pointA: {fileID: 0}
   pointB: {fileID: 0}
-  speed: 2
+  speed: 0.1
   rotationSpeed: 2
 --- !u!58 &2135092153999832542
 CircleCollider2D:

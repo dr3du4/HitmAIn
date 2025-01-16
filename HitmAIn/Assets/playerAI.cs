@@ -13,16 +13,31 @@ public class playerAI : Agent
     private Vector3 startPos;
     private float currentDistance;
     
+    public List<GameObject> gates;
+    private int currentIndex;
+    private int steps=0;
+    
     void Start()
     {
         startPos = transform.position;
-        currentDistance = Vector3.Distance(startPos, target.position);
+        currentIndex = 0;
+        target = gates[currentIndex].transform;
+        currentDistance = Vector3.Distance(startPos, gates[currentIndex].transform.position);
+        
+        
     }
     
     public override void OnEpisodeBegin()
     {
         transform.position = startPos;
-        currentDistance = Vector3.Distance(transform.position, target.position);
+        currentIndex = 0;
+       
+        target = gates[currentIndex].transform;
+        currentDistance = Vector3.Distance(startPos, gates[currentIndex].transform.position);
+        foreach (GameObject g in gates)
+        {
+            g.SetActive(true);
+        }
     }
     public override void CollectObservations(VectorSensor sensor)
     {
@@ -39,7 +54,9 @@ public class playerAI : Agent
         float Distance = Vector2.Distance(transform.position, target.position);
         float diff=currentDistance-Distance;
         AddReward(diff);
+       
         currentDistance = Distance;
+      
         
        
     }
@@ -53,16 +70,34 @@ public class playerAI : Agent
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.tag);
+        
         if (other.tag == "Goal")
         {
-            AddReward(1f);
+            Debug.Log(other.tag);
+            AddReward(1000f);
             EndEpisode();
         }
         else if (other.tag == "Wall")
         {
-            AddReward(-1f);
+            Debug.Log(other.tag);
+            AddReward(-1000f);
             EndEpisode();
+        }
+        else if (other.tag == "Gate" && gates[currentIndex] == other.gameObject)
+        {
+            Debug.Log($"Triggered Gate: {other.name}, Current Index: {currentIndex}");
+            AddReward(500f);
+            other.gameObject.SetActive(false);
+
+            currentIndex++;
+            if (currentIndex < gates.Count)
+            {
+                target = gates[currentIndex].transform;
+            }
+            else
+            {
+                Debug.LogWarning("No more gates available!");
+            }
         }
         
     }

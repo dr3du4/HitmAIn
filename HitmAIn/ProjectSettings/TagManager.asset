@@ -7,6 +7,10 @@ TagManager:
   - Carpet
   - Wall
   - Goal
+  - Gate
+  - Reward
+  - Light
+  - Enemy
   layers:
   - Default
   - TransparentFX

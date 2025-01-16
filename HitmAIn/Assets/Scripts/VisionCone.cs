@@ -24,6 +24,8 @@ public class VisionCone : MonoBehaviour {
 
     [SerializeField] private Material material;
     
+    [SerializeField] private bool drawGizmos;
+    
 
     private List<Vector2> raycastHitpoints = new();
     private LayerMask interactionMask;
@@ -111,6 +113,8 @@ public class VisionCone : MonoBehaviour {
     
     private void OnDrawGizmos()
     {
+        if (!drawGizmos) return;
+        
         Vector3 origin = transform.position;
 
         Vector3 centerDirection = Quaternion.Euler(0, 0, angleOffset) * transform.up;

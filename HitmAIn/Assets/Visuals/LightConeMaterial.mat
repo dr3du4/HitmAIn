@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LightConeMaterial
-  m_Shader: {fileID: 4800000, guid: acbd3b5fc8b958048a52e61f87894340, type: 3}
+  m_Shader: {fileID: 4800000, guid: b88884b86be94c3a8d942aba55d748af, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -67,6 +67,7 @@ Material:
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
+    - _DarkenFactor: 0
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
     - _GlossMapScale: 1
@@ -77,6 +78,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 1
+    - _Softness: 0.1
     - _SpecularHighlights: 0
     - _SrcBlend: 1
     - _UVSec: 0
@@ -84,4 +86,5 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 0.70216733, b: 0, a: 0.48235294}
     - _EmissionColor: {r: 1, g: 0.68668544, b: 0, a: 1}
+    - _TintColor: {r: 1, g: 0.9263606, b: 0, a: 1}
   m_BuildTextureStacks: []

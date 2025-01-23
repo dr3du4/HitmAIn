@@ -83,7 +83,7 @@ public class playerAI : Agent
         if (other.tag == "Goal")
         {
             Debug.Log(other.tag);
-            AddReward(1f);
+            AddReward(100f);
             EndEpisode();
         }
         else if (other.tag == "Wall")
@@ -95,7 +95,7 @@ public class playerAI : Agent
         else if (other.tag == "Gate" && gates[currentIndex] == other.gameObject)
         {
             Debug.Log($"Triggered Gate: {other.name}, Current Index: {currentIndex}");
-            AddReward(1f);
+            AddReward(100f);
             other.gameObject.SetActive(false);
 
             currentIndex++;

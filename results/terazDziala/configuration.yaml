@@ -16,8 +16,8 @@ behaviors:
       epsilon_schedule: linear
     checkpoint_interval: 500000
     network_settings:
-      normalize: false
-      hidden_units: 128
+      normalize: true
+      hidden_units: 64
       num_layers: 2
       vis_encode_type: simple
       memory: null
@@ -25,7 +25,7 @@ behaviors:
       deterministic: false
     reward_signals:
       extrinsic:
-        gamma: 0.99
+        gamma: 1.0
         strength: 1.0
         network_settings:
           normalize: false
@@ -35,13 +35,26 @@ behaviors:
           memory: null
           goal_conditioning_type: hyper
           deterministic: false
+      curiosity:
+        gamma: 0.995
+        strength: 0.1
+        network_settings:
+          normalize: true
+          hidden_units: 64
+          num_layers: 2
+          vis_encode_type: simple
+          memory: null
+          goal_conditioning_type: hyper
+          deterministic: false
+        learning_rate: 0.0003
+        encoding_size: null
     init_path: null
     keep_checkpoints: 5
     even_checkpoints: false
-    max_steps: 500000
+    max_steps: 1000000000
     time_horizon: 64
-    summary_freq: 50000
-    threaded: false
+    summary_freq: 10000
+    threaded: true
     self_play: null
     behavioral_cloning: null
 env_settings:
@@ -59,17 +72,17 @@ engine_settings:
   width: 84
   height: 84
   quality_level: 5
-  time_scale: 20
+  time_scale: 200.0
   target_frame_rate: -1
   capture_frame_rate: 60
   no_graphics: false
 environment_parameters: null
 checkpoint_settings:
-  run_id: to_delete_1
+  run_id: terazDziala
   initialize_from: null
   load_model: false
-  resume: false
-  force: true
+  resume: true
+  force: false
   train_model: false
   inference: false
   results_dir: results

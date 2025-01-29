@@ -15,7 +15,7 @@ public class playerAI : Agent
     
     public List<GameObject> gates;
     private int currentIndex;
-    private int steps=0;
+    //private int steps=0;
     
     void Start()
     {
@@ -53,8 +53,17 @@ public class playerAI : Agent
         transform.position += new Vector3(moveX, moveY, 0) * Time.deltaTime * moveSpeed;
         float Distance = Vector2.Distance(transform.position, target.position);
         float diff=currentDistance-Distance;
+       // steps++;
+        
         AddReward(diff);
-       
+        
+        /*AddReward(-0.001f);
+         if (steps >= 10000)
+        {
+            AddReward(-100);
+            steps = 0;
+            EndEpisode();
+        }*/
         currentDistance = Distance;
       
         
@@ -74,19 +83,19 @@ public class playerAI : Agent
         if (other.tag == "Goal")
         {
             Debug.Log(other.tag);
-            AddReward(1000f);
+            AddReward(100f);
             EndEpisode();
         }
         else if (other.tag == "Wall")
         {
             Debug.Log(other.tag);
-            AddReward(-1000f);
+            AddReward(-1f);
             EndEpisode();
         }
         else if (other.tag == "Gate" && gates[currentIndex] == other.gameObject)
         {
             Debug.Log($"Triggered Gate: {other.name}, Current Index: {currentIndex}");
-            AddReward(500f);
+            AddReward(100f);
             other.gameObject.SetActive(false);
 
             currentIndex++;
